@@ -9,20 +9,17 @@ Forklift sim to-do list:
 Key:  
 x&nbsp;&nbsp;&nbsp;&nbsp;Not Started  
 ~&nbsp;&nbsp;&nbsp;&nbsp;Ongoing  
-^&nbsp;&nbsp;&nbsp;&nbsp;Completed  
+^&nbsp;&nbsp;&nbsp;&nbsp;Completed Since Last Push  
 
-^&nbsp;&nbsp;&nbsp;&nbsp;Add camera position switching  
+^&nbsp;&nbsp;&nbsp;&nbsp;Fixed camera position switching  
+^&nbsp;&nbsp;&nbsp;&nbsp;Fixed pallet in goal tracker  
+^&nbsp;&nbsp;&nbsp;&nbsp;Added timer to run against  
 ~&nbsp;&nbsp;&nbsp;&nbsp;Build warehouse environment  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Add interior decoration  
-^&nbsp;&nbsp;&nbsp;&nbsp;Link main hub to both games  
-^&nbsp;&nbsp;&nbsp;&nbsp;Fix engine audio  
-^&nbsp;&nbsp;&nbsp;&nbsp;Fix pallette stacking  
-^&nbsp;&nbsp;&nbsp;&nbsp;Add pause menu  
-x&nbsp;&nbsp;&nbsp;&nbsp;Add forklift UI (speedometer, fork raise %)  
+~&nbsp;&nbsp;&nbsp;&nbsp;Add forklift UI (speedometer, fork raise %)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Add lift raise %  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add background audio  
-^&nbsp;&nbsp;&nbsp;&nbsp;Add goal  
 x&nbsp;&nbsp;&nbsp;&nbsp;Animate steering wheel  
-x&nbsp;&nbsp;&nbsp;&nbsp;Add timer to run against  
 
 -----
 
@@ -31,9 +28,8 @@ Cybersecurity to-do list:
 Key:  
 x&nbsp;&nbsp;&nbsp;&nbsp;Not Started  
 ~&nbsp;&nbsp;&nbsp;&nbsp;Ongoing  
-^&nbsp;&nbsp;&nbsp;&nbsp;Completed  
+^&nbsp;&nbsp;&nbsp;&nbsp;Completed Since Last Push  
 
-^&nbsp;&nbsp;&nbsp;&nbsp;Add pause menu  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add email UI  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add browser UI  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add first day emails  
