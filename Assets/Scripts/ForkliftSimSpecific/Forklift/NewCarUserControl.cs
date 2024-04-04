@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(NewCarController))]
@@ -6,8 +5,12 @@ using UnityEngine;
 
 public class NewCarUserControl : MonoBehaviour
 {
-    private NewCarController m_Car; // the car controller we want to use
+    [SerializeField] private Transform steeringWheel;
+    private NewCarController m_Car;
     private InputManager IM;
+    private float h, v, handbrake;
+    [SerializeField] private float minYRot = -1, maxYRot = 1, rotationCounter, rotationSpeed;
+    [SerializeField] private bool isMaxRotate = false, stopNaturalRotate;
 
     private void Awake()
     {
@@ -19,11 +22,65 @@ public class NewCarUserControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // pass the input to the car!
-        float h = IM.horizontal;
-        float v = IM.vertical;
+        // pass the input to the car
+        h = IM.horizontal;
+        v = IM.vertical;
+        handbrake = IM.handbrake;
 
-        float handbrake = IM.handbrake;
+        RotateSteeringWheel();
+
         m_Car.Move(h, v, v, handbrake);
+    }
+
+    private void RotateSteeringWheel()
+    {
+        // calculate rotation
+        rotationCounter += h * rotationSpeed * Time.deltaTime;
+
+        // stop rotation at min/max ranges
+        if (rotationCounter <= minYRot)
+        {
+            isMaxRotate = true;
+            rotationCounter = minYRot;
+        }
+        else if (rotationCounter >= maxYRot)
+        {
+            isMaxRotate = true;
+            rotationCounter = maxYRot;
+        }
+        else
+            isMaxRotate = false;
+
+        // rotate wheel in relation to steering input
+        if (!isMaxRotate)
+        {
+            steeringWheel.Rotate(float.Epsilon, h * rotationSpeed, float.Epsilon);
+        }
+
+        // rotate back to neutral position under zero steering input
+        if (h == 0 && !stopNaturalRotate)
+        {
+            if (rotationCounter > 0)
+            {
+                rotationCounter += -rotationSpeed * Time.deltaTime;
+                steeringWheel.Rotate(float.Epsilon, -rotationSpeed, float.Epsilon);
+
+                if (rotationCounter == 0)
+                    stopNaturalRotate = true;
+                else
+                    stopNaturalRotate = false;
+            }
+
+            if (rotationCounter < 0)
+            {
+                rotationCounter += rotationSpeed * Time.deltaTime;
+                steeringWheel.Rotate(float.Epsilon, rotationSpeed, float.Epsilon);
+
+                if (rotationCounter == 0)
+                    stopNaturalRotate = true;
+                else
+                    stopNaturalRotate = false;
+            }
+        }
     }
 }

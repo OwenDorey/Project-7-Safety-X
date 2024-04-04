@@ -52,7 +52,7 @@ public class NewCarController : MonoBehaviour
     private float m_GearFactor;
     private float m_OldRotation;
     private float m_CurrentTorque;
-    public Rigidbody m_Rigidbody;
+    [HideInInspector] public Rigidbody m_Rigidbody;
     private const float k_ReversingThreshold = 0.01f;
 
     public bool Skidding { get; private set; }
@@ -162,17 +162,6 @@ public class NewCarController : MonoBehaviour
                 m_WheelColliders[3].steerAngle = m_SteerAngle;
                 break;
         }
-
-        /*if (FrontSteerWheels)
-        {
-            m_WheelColliders[0].steerAngle = m_SteerAngle;
-            m_WheelColliders[1].steerAngle = m_SteerAngle;
-        }
-        else
-        {
-            m_WheelColliders[2].steerAngle = m_SteerAngle;
-            m_WheelColliders[3].steerAngle = m_SteerAngle;
-        }*/
         
         SteerHelper();
         ApplyDrive(accel, footbrake);
@@ -195,7 +184,6 @@ public class NewCarController : MonoBehaviour
         CalculateRevs();
         GearChanging();
         AddDownForce();
-        //CheckForWheelSpin();
         TractionControl();
     }
 

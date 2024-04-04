@@ -24,31 +24,10 @@ public class Speedometer : MonoBehaviour {
     }
 
     private void Update() {
-        //HandlePlayerInput();
-
-        //speed += 30f * Time.deltaTime;
-        //if (speed > speedMax) speed = speedMax;
         speed = controller.m_Rigidbody.velocity.magnitude;
         speed = Mathf.Clamp(speed, 0f, speedMax);
         needleTranform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
     }
-
-/*    private void HandlePlayerInput() {
-        if (Input.GetKey(KeyCode.UpArrow)) {
-            float acceleration = 80f;
-            speed += acceleration * Time.deltaTime;
-        } else {
-            float deceleration = 20f;
-            speed -= deceleration * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow)) {
-            float brakeSpeed = 100f;
-            speed -= brakeSpeed * Time.deltaTime;
-        }
-
-        speed = Mathf.Clamp(speed, 0f, speedMax);
-    }*/
 
     private void CreateSpeedLabels() {
         float totalAngleSize = ZERO_SPEED_ANGLE - MAX_SPEED_ANGLE;

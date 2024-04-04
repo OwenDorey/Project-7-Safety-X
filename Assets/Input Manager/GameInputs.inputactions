@@ -1,5 +1,5 @@
 {
-    "name": "Forklift Inputs",
+    "name": "GameInputs",
     "maps": [
         {
             "name": "PlayerForklift",
@@ -210,7 +210,7 @@
                 {
                     "name": "up",
                     "id": "6fc311b3-e961-4915-bf48-01d667c9219e",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

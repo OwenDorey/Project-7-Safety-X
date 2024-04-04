@@ -11,15 +11,12 @@ x&nbsp;&nbsp;&nbsp;&nbsp;Not Started
 ~&nbsp;&nbsp;&nbsp;&nbsp;Ongoing  
 ^&nbsp;&nbsp;&nbsp;&nbsp;Completed Since Last Push  
 
-^&nbsp;&nbsp;&nbsp;&nbsp;Fixed camera position switching  
-^&nbsp;&nbsp;&nbsp;&nbsp;Fixed pallet in goal tracker  
-^&nbsp;&nbsp;&nbsp;&nbsp;Added timer to run against  
+^&nbsp;&nbsp;&nbsp;&nbsp;Animated steering wheel 
+^&nbsp;&nbsp;&nbsp;&nbsp;Added forklift UI (speedometer, fork raise %)  
 ~&nbsp;&nbsp;&nbsp;&nbsp;Build warehouse environment  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Add interior decoration  
-~&nbsp;&nbsp;&nbsp;&nbsp;Add forklift UI (speedometer, fork raise %)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Add lift raise %  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add background audio  
-x&nbsp;&nbsp;&nbsp;&nbsp;Animate steering wheel  
+x&nbsp;&nbsp;&nbsp;&nbsp;Add loading screens + context messages  
 
 -----
 
