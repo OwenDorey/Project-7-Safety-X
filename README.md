@@ -11,7 +11,7 @@ x&nbsp;&nbsp;&nbsp;&nbsp;Not Started
 ~&nbsp;&nbsp;&nbsp;&nbsp;Ongoing  
 ^&nbsp;&nbsp;&nbsp;&nbsp;Completed Since Last Push  
 
-^&nbsp;&nbsp;&nbsp;&nbsp;Animated steering wheel 
+^&nbsp;&nbsp;&nbsp;&nbsp;Animated steering wheel  
 ^&nbsp;&nbsp;&nbsp;&nbsp;Added forklift UI (speedometer, fork raise %)  
 ~&nbsp;&nbsp;&nbsp;&nbsp;Build warehouse environment  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Add interior decoration  
