@@ -11,10 +11,9 @@ x&nbsp;&nbsp;&nbsp;&nbsp;Not Started
 ~&nbsp;&nbsp;&nbsp;&nbsp;Ongoing  
 ^&nbsp;&nbsp;&nbsp;&nbsp;Completed Since Last Push  
 
-^&nbsp;&nbsp;&nbsp;&nbsp;Built warehouse environment & added interior decoration  
-^&nbsp;&nbsp;&nbsp;&nbsp;Placed crates around the warehouse and updated target times  
+^&nbsp;&nbsp;&nbsp;&nbsp;Added more interior decoration  
+^&nbsp;&nbsp;&nbsp;&nbsp;Added loading screens + context messages  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add background audio  
-x&nbsp;&nbsp;&nbsp;&nbsp;Add loading screens + context messages  
 
 -----
 
@@ -25,6 +24,8 @@ x&nbsp;&nbsp;&nbsp;&nbsp;Not Started
 ~&nbsp;&nbsp;&nbsp;&nbsp;Ongoing  
 ^&nbsp;&nbsp;&nbsp;&nbsp;Completed Since Last Push  
 
+^&nbsp;&nbsp;&nbsp;&nbsp;Added loading screens + context messages  
+^&nbsp;&nbsp;&nbsp;&nbsp;Added more camera angles  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add email UI  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add browser UI  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add first day emails  

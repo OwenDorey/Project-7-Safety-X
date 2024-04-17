@@ -1,13 +1,15 @@
 using UnityEngine;
 
 public class CameraSwitch : MonoBehaviour
-{   
+{
+    [SerializeField] private float changeRate;
+    [SerializeField] private MenuResultController menuResultController;
+    [Header("Cameras")]
     [SerializeField] private GameObject VCamFrontView;
     [SerializeField] private GameObject VCamLeftView;
     [SerializeField] private GameObject VCamRightView;
     [SerializeField] private GameObject VCamReverseView;
-    [SerializeField] private float changeRate;
-
+    
     private InputManager IM;
     private float nextSwitch = 0f;
 
@@ -17,6 +19,12 @@ public class CameraSwitch : MonoBehaviour
     }
 
     void Update()
+    {
+        if (menuResultController.gameStarted)
+            InputCheck();
+    }
+
+    private void InputCheck()
     {
         if (IM.cameraSwitchUp && Time.time >= nextSwitch)
         {

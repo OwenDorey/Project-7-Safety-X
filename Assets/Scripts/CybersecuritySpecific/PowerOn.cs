@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerOn : MonoBehaviour
@@ -10,7 +9,7 @@ public class PowerOn : MonoBehaviour
     public Material onMaterial;
     public Material offMaterial;
 
-    private bool isOn = false;
+    [HideInInspector] public bool isOn = false;
     private void OnMouseDown()
     {
         if (!isOn)
@@ -23,7 +22,7 @@ public class PowerOn : MonoBehaviour
 
         IEnumerator StartUp()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3f);
 
             loginScreen.SetActive(true);
             startupScreen.SetActive(false);

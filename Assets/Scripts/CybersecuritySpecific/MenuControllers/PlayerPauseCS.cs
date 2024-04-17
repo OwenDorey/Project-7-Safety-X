@@ -3,11 +3,10 @@ using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(InputManager))]
 
-public class PlayerPause : MonoBehaviour
+public class PlayerPauseCS : MonoBehaviour
 {
     [SerializeField] private GameObject resumeButton;
-    [SerializeField] private MenuResultController resultController;
-    [SerializeField] private AudioSource forkliftEngine;
+    [SerializeField] private MenuResultControllerCS resultController;
 
     private InputManager IM;
 
@@ -26,7 +25,6 @@ public class PlayerPause : MonoBehaviour
     {
         if (IM.cancel)
         {
-            forkliftEngine.Stop();
             resultController.pauseMenuPanel.SetActive(true);
             EventSystem.current.SetSelectedGameObject(resumeButton);
             Cursor.visible = true;

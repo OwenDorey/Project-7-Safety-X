@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 161268
   packageName: Crash Crate
   packageVersion: 1.0
-  assetPath: Assets/ArionDigital/CrashCrate/Scripts/CrashCrate.cs
+  assetPath: Assets/Scripts/ForkliftSimSpecific/Cargo/CrashCrate.cs
   uploadId: 347844

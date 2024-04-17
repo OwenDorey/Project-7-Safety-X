@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 161268
   packageName: Crash Crate
   packageVersion: 1.0
-  assetPath: Assets/ArionDigital/CrashCrate/Prefabs/Crash_Crate_Environment.prefab
+  assetPath: Assets/Prefabs/ForkliftSimSpecific/Crash_Crate_Environment.prefab
   uploadId: 347844
