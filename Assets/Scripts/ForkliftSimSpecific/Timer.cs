@@ -13,7 +13,10 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        currentTimeText.text = "Time: " + currentTime.ToString("F2");
+        int minutes = Mathf.FloorToInt(currentTime / 60F);
+        int seconds = Mathf.FloorToInt(currentTime - minutes * 60);
+        string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+        currentTimeText.text = "Time: " + timeText;
         currentTime += Time.deltaTime;
 
         TimeCheck();

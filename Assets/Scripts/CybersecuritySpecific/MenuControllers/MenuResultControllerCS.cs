@@ -6,9 +6,6 @@ using UnityEngine.EventSystems;
 
 public class MenuResultControllerCS : MonoBehaviour
 {
-    [Header("Scenes")]
-    [SerializeField] private string menuScene = "StartScene";
-    [SerializeField] private string playScene = "Overworld";
     [Header("Menus")]
     public GameObject gameStartPanel;
     public GameObject pauseMenuPanel;

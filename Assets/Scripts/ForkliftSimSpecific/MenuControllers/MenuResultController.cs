@@ -6,9 +6,6 @@ using UnityEngine.EventSystems;
 
 public class MenuResultController : MonoBehaviour
 {
-    [Header("Scenes")]
-    [SerializeField] private string menuScene;
-    [SerializeField] private string playScene;
     [Header("Menus")]
     public GameObject initialLoadPanel;
     public GameObject pauseMenuPanel;
@@ -30,6 +27,7 @@ public class MenuResultController : MonoBehaviour
         winMenuPanel.SetActive(false);
         loseMenuPanel.SetActive(false);
         loadingMenu.SetActive(false);
+        initialLoadPanel.SetActive(true);
         forkliftEngine.enabled = false;
         EventSystem.current.SetSelectedGameObject(startGameButton);
     }
