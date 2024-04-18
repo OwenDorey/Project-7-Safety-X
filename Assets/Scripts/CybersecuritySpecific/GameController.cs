@@ -18,13 +18,14 @@ public class GameController : MonoBehaviour
 
     // 
 
-    public GameObject DesktopScreen;
+    public GameObject desktopScreen;
+    public GameObject emailsScreen;
 
     public void OnLogin()
     {
         if (emailInput.text == correctEmail && passwordInput.text == correctPassword)
         {
-            DesktopScreen.SetActive(true);
+            desktopScreen.SetActive(true);
             loginScreen.SetActive(false);
         }
         else
@@ -39,6 +40,12 @@ public class GameController : MonoBehaviour
 
             invalidText.SetActive(false);
         }
+    }
+
+    public void OpenEmails()
+    {
+        desktopScreen.SetActive(false);
+        emailsScreen.SetActive(true);
     }
     
 
