@@ -1,25 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Login Screen
-
-    public GameObject loginScreen;
-
-    public GameObject invalidText;
-    public TMP_InputField emailInput;
-    public TMP_InputField passwordInput;
-
-    public string correctEmail = "email";
-    public string correctPassword = "password";
-
-    // 
-
-    public GameObject desktopScreen;
-    public GameObject emailsScreen;
+    [Header("Login Screen")]
+    [SerializeField] private GameObject loginScreen;
+    [SerializeField] private GameObject invalidText;
+    [SerializeField] private TMP_InputField emailInput;
+    [SerializeField] private TMP_InputField passwordInput;
+    [SerializeField] private string correctEmail = "email";
+    [SerializeField] private string correctPassword = "password";
+    [Header("Desktop")]
+    [SerializeField] private GameObject desktopScreen;
+    [SerializeField] private GameObject emailsScreen;
+    [Header("Email Screen")]
+    [SerializeField] private GameObject exitButton;
+    [Header("Day Change")]
+    [SerializeField] private EmailController emailController;
+    [SerializeField] private CameraSwitchCS cameraSwitchCS;
+    [SerializeField] private GameObject noLogoutText;
+    [SerializeField] private int day = 1;
+    public int score = 100;
 
     public void OnLogin()
     {
@@ -33,13 +35,6 @@ public class GameController : MonoBehaviour
             invalidText.SetActive(true);
             StartCoroutine(RemoveInvalid());
         }
-
-        IEnumerator RemoveInvalid()
-        {
-            yield return new WaitForSeconds(3);
-
-            invalidText.SetActive(false);
-        }
     }
 
     public void OpenEmails()
@@ -47,7 +42,46 @@ public class GameController : MonoBehaviour
         desktopScreen.SetActive(false);
         emailsScreen.SetActive(true);
     }
-    
 
+    public void CloseEmails()
+    {
+        desktopScreen.SetActive(true);
+        emailsScreen.SetActive(false);
+    }
 
+    public void LogOut()
+    {
+        if (emailController.emailsResponded == 5)
+        {
+            desktopScreen.SetActive(false);
+            emailController.emailsResponded = 0;
+            cameraSwitchCS.gameCameraCentre.SetActive(false);
+            cameraSwitchCS.gameCameraLeft.SetActive(false);
+            cameraSwitchCS.gameCameraRight.SetActive(false);
+            cameraSwitchCS.initialCamera.SetActive(true);
+
+            if (score > 0)
+            {
+                // Show score for that day
+                day++;
+                // Show starting screen for next day
+            }
+            else
+            {
+                // Show fail screen
+                // Loop back to the start of the failed day
+            }
+        }
+        else
+        {
+            noLogoutText.SetActive(true);
+            StartCoroutine(RemoveInvalid());
+        }
+    }
+    IEnumerator RemoveInvalid()
+    {
+        yield return new WaitForSeconds(3f);
+
+        invalidText.SetActive(false);
+    }
 }

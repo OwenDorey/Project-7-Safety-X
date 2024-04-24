@@ -5,10 +5,10 @@ public class CameraSwitchCS : MonoBehaviour
     [SerializeField] private float changeRate;
     [SerializeField] private PowerOn powerOn;
     [Header("Cameras")]
-    [SerializeField] private GameObject initialCamera;
-    [SerializeField] private GameObject gameCameraCentre;
-    [SerializeField] private GameObject gameCameraRight;
-    [SerializeField] private GameObject gameCameraLeft;
+    public GameObject initialCamera;
+    public GameObject gameCameraCentre;
+    public GameObject gameCameraRight;
+    public GameObject gameCameraLeft;
     
     private InputManager IM;
     private float nextSwitch = 0f;
