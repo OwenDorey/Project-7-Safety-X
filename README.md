@@ -11,8 +11,6 @@ x&nbsp;&nbsp;&nbsp;&nbsp;Not Started
 ~&nbsp;&nbsp;&nbsp;&nbsp;Ongoing  
 ^&nbsp;&nbsp;&nbsp;&nbsp;Completed Since Last Push  
 
-^&nbsp;&nbsp;&nbsp;&nbsp;Added more interior decoration  
-^&nbsp;&nbsp;&nbsp;&nbsp;Added loading screens + context messages  
 x&nbsp;&nbsp;&nbsp;&nbsp;Add background audio  
 
 -----
@@ -24,8 +22,11 @@ x&nbsp;&nbsp;&nbsp;&nbsp;Not Started
 ~&nbsp;&nbsp;&nbsp;&nbsp;Ongoing  
 ^&nbsp;&nbsp;&nbsp;&nbsp;Completed Since Last Push  
 
-^&nbsp;&nbsp;&nbsp;&nbsp;Added loading screens + context messages  
-^&nbsp;&nbsp;&nbsp;&nbsp;Added more camera angles  
-x&nbsp;&nbsp;&nbsp;&nbsp;Add email UI  
-x&nbsp;&nbsp;&nbsp;&nbsp;Add browser UI  
-x&nbsp;&nbsp;&nbsp;&nbsp;Add first day emails  
+^&nbsp;&nbsp;&nbsp;&nbsp;Added email UI  
+^&nbsp;&nbsp;&nbsp;&nbsp;Setup scenarios for each day  
+^&nbsp;&nbsp;&nbsp;&nbsp;Coded framework for interacting with emails  
+x&nbsp;&nbsp;&nbsp;&nbsp;Write messages for each email  
+x&nbsp;&nbsp;&nbsp;&nbsp;Connect each email to the framework  
+x&nbsp;&nbsp;&nbsp;&nbsp;Add win/lose screens with score calculation  
+x&nbsp;&nbsp;&nbsp;&nbsp;Add instrictional videos/GIFs for each day  
+x&nbsp;&nbsp;&nbsp;&nbsp;Add browser UI(?)  
