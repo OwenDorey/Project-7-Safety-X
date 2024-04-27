@@ -14,14 +14,12 @@ public class GameController : MonoBehaviour
     [Header("Desktop")]
     [SerializeField] private GameObject desktopScreen;
     [SerializeField] private GameObject emailsScreen;
-    [Header("Email Screen")]
-    [SerializeField] private GameObject exitButton;
     [Header("Day Change")]
-    [SerializeField] private EmailController emailController;
+    [SerializeField] private EmailsManager emailsManager;
     [SerializeField] private CameraSwitchCS cameraSwitchCS;
     [SerializeField] private GameObject noLogoutText;
-    [SerializeField] private int day = 1;
-    public int score = 100;
+    [SerializeField] private GameObject resultsScreen;
+    public int score;
 
     public void OnLogin()
     {
@@ -41,8 +39,8 @@ public class GameController : MonoBehaviour
     {
         desktopScreen.SetActive(false);
         emailsScreen.SetActive(true);
+        emailsManager.AddEmails();
     }
-
     public void CloseEmails()
     {
         desktopScreen.SetActive(true);
@@ -51,10 +49,10 @@ public class GameController : MonoBehaviour
 
     public void LogOut()
     {
-        if (emailController.emailsResponded == 5)
+        if (emailsManager.emailsResponded == 5)
         {
             desktopScreen.SetActive(false);
-            emailController.emailsResponded = 0;
+            emailsManager.emailsResponded = 0;
             cameraSwitchCS.gameCameraCentre.SetActive(false);
             cameraSwitchCS.gameCameraLeft.SetActive(false);
             cameraSwitchCS.gameCameraRight.SetActive(false);
@@ -62,8 +60,8 @@ public class GameController : MonoBehaviour
 
             if (score > 0)
             {
-                // Show score for that day
-                day++;
+                resultsScreen.SetActive(true);
+                emailsManager.day++;
                 // Show starting screen for next day
             }
             else
@@ -78,10 +76,12 @@ public class GameController : MonoBehaviour
             StartCoroutine(RemoveInvalid());
         }
     }
+
     IEnumerator RemoveInvalid()
     {
         yield return new WaitForSeconds(3f);
 
         invalidText.SetActive(false);
+        noLogoutText.SetActive(false);
     }
 }

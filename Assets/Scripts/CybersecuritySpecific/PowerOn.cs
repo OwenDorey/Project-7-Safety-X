@@ -9,6 +9,8 @@ public class PowerOn : MonoBehaviour
     public Material onMaterial;
     public Material offMaterial;
 
+    public Animator showDay;
+
     [HideInInspector] public bool isOn = false;
     private void OnMouseDown()
     {
@@ -25,6 +27,7 @@ public class PowerOn : MonoBehaviour
             yield return new WaitForSeconds(3f);
 
             loginScreen.SetActive(true);
+            showDay.SetTrigger("Show");
             startupScreen.SetActive(false);
         }
             

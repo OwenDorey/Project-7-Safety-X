@@ -9,18 +9,20 @@ public class MenuResultControllerCS : MonoBehaviour
     [Header("Menus")]
     public GameObject gameStartPanel;
     public GameObject pauseMenuPanel;
-    public GameObject loadingGamePanel;
+    public GameObject loadingGameCanvas;
     [Header("Sliders")]
     [SerializeField] private Slider loadingSlider;
     [Header("Buttons")]
     [SerializeField] private GameObject gameStartButton;
+    [Header("Animators")]
+    [SerializeField] private Animator showDay;
 
     [HideInInspector] public bool gameStarted = false;
 
     private void Start()
     {
         pauseMenuPanel.SetActive(false);
-        loadingGamePanel.SetActive(false);
+        loadingGameCanvas.SetActive(false);
         gameStartPanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(gameStartButton);
     }
@@ -30,6 +32,7 @@ public class MenuResultControllerCS : MonoBehaviour
         gameStartPanel.SetActive(false);
         gameStarted = true;
         Time.timeScale = 1;
+        showDay.SetTrigger("Show");
     }
 
     public void Resume()
@@ -41,7 +44,7 @@ public class MenuResultControllerCS : MonoBehaviour
     public void Restart(string levelToLoad)
     {
         pauseMenuPanel.SetActive(false);
-        loadingGamePanel.SetActive(true);
+        loadingGameCanvas.SetActive(true);
         Time.timeScale = 1;
         StartCoroutine(LoadLevelASync(levelToLoad));
     }
@@ -49,7 +52,7 @@ public class MenuResultControllerCS : MonoBehaviour
     public void QuitToMainMenu(string levelToLoad)
     {
         pauseMenuPanel.SetActive(false);
-        loadingGamePanel.SetActive(true);
+        loadingGameCanvas.SetActive(true);
         Time.timeScale = 1;
         StartCoroutine(LoadLevelASync(levelToLoad));
     }
