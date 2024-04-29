@@ -45,12 +45,12 @@ public class EmailController : MonoBehaviour
             StartCoroutine(ReturnToEmailScreen());
         else if (correctResponse == 1)
         {
-            gameController.score -= 25;
+            //gameController.score -= 25;
             StartCoroutine(ReturnToEmailScreen());
         }
         else if (correctResponse == 2)
         {
-            gameController.score = 0;
+            //gameController.score = 0;
             StartCoroutine(ReturnToEmailScreen());
         }
     }
