@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraSwitchCS : MonoBehaviour
 {
     [SerializeField] private float changeRate;
-    [SerializeField] private PowerOn powerOn;
+    [SerializeField] private GameController gameController;
     [Header("Cameras")]
     public GameObject initialCamera;
     public GameObject gameCameraCentre;
@@ -21,7 +21,7 @@ public class CameraSwitchCS : MonoBehaviour
 
     void Update()
     {
-        if (powerOn.isOn)
+        if (gameController.isOn)
         {
             if (!initialChange)
             {

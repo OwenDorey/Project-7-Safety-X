@@ -1,33 +1,41 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UI;
-using System.Collections;
 
 public class EmailsManager : MonoBehaviour
 {
-    [Header("Screens")]
-    [SerializeField] private GameObject emailScreen;
-    [SerializeField] private GameObject openedEmailScreen;
-    [Header("Emails")]
-    public bool isCurrentEmailGood;
-    public int emailsResponded = 0;
+    // Screens
 
-    [SerializeField] private GameObject[] Day1Emails;
+    public GameObject emailScreen;
+    public GameObject allEmailsScreen;
+    public GameObject openedEmailScreen;
 
-    private float change = 60f;
-    private float offset = 60f;
-    [Header("Misc.")]
-    public GameObject currentEmailObject;
     public int day = 1;
 
-    [SerializeField] private int score = 0;
-    [SerializeField] private float returnDelay;
+    // Emails
 
-    private GameObject[] allEmails;
-    //private int emailIndex = 0;
-    private int emailCount = 0;
+    public GameObject[] Day1Emails;
+
+    private float change = 60f;
+    [HideInInspector] public float offset = 60f;
+
+    public bool isCurrentEmailGood;
+
+    public GameObject currentEmailObject;
+
+    [HideInInspector] public int emailCount = 0;
+    [HideInInspector] public int completedEmails = 0;
+    [HideInInspector] public int correctEmails = 0;
+    [HideInInspector] public List<GameObject> allEmails;
+
+
 
     public void AddEmails()
     {
+
         // If day 1
 
         if (day == 1 && emailCount == 0)
@@ -38,55 +46,48 @@ public class EmailsManager : MonoBehaviour
                 GameObject newEmail = Instantiate(Day1Emails[chosen], emailScreen.transform);
                 newEmail.GetComponent<RectTransform>().localPosition -= new Vector3(0f, offset, 0f);
 
-                //allEmails[emailIndex] = newEmail;
-                //emailIndex++;
-
                 offset += change;
                 emailCount++;
+                allEmails.Add(newEmail);
             }
         }
     }
 
     public void OnReply()
     {
-       if (isCurrentEmailGood)
-       {
-            score += 10;
-       }
-        Debug.Log(score);
+        if (isCurrentEmailGood)
+        {
+            correctEmails += 1;
+        }
+        Debug.Log(correctEmails);
 
         currentEmailObject.GetComponent<Image>().color = new Color32(79, 253, 46, 67);
         currentEmailObject.GetComponent<Button>().interactable = false;
 
-        StartCoroutine(ReturnToEmailScreen());
+        completedEmails++;
+        openedEmailScreen.SetActive(false);
     }
 
     public void OnDelete()
     {
         if (!isCurrentEmailGood)
         {
-            score += 10;
+            correctEmails += 1;
         }
-        Debug.Log(score);
+        Debug.Log(correctEmails);
 
         currentEmailObject.GetComponent<Image>().color = new Color32(255, 49, 49, 67);
         currentEmailObject.GetComponent<Button>().interactable = false;
 
-        StartCoroutine(ReturnToEmailScreen());
+        completedEmails++;
+        openedEmailScreen.SetActive(false);
     }
 
     public void DeleteAllEmails()
     {
-        for (int i = 0; i < allEmails.Length; i++)
+        foreach (var email in allEmails)
         {
-            Destroy(allEmails[i]);
+            Destroy(email);
         }
-    }
-
-    IEnumerator ReturnToEmailScreen()
-    {
-        emailsResponded++;
-        yield return new WaitForSeconds(returnDelay);
-        openedEmailScreen.SetActive(false);
     }
 }
