@@ -5,14 +5,15 @@ public class CameraSwitchCS : MonoBehaviour
     [SerializeField] private float changeRate;
     [SerializeField] private GameController gameController;
     [Header("Cameras")]
-    public GameObject initialCamera;
+    public GameObject startDayCamera;
     public GameObject gameCameraCentre;
     public GameObject gameCameraRight;
     public GameObject gameCameraLeft;
-    
+
+    [HideInInspector] public bool startDayChange = false;
+
     private InputManager IM;
     private float nextSwitch = 0f;
-    private bool initialChange = false;
 
     void Start()
     {
@@ -23,11 +24,11 @@ public class CameraSwitchCS : MonoBehaviour
     {
         if (gameController.isOn)
         {
-            if (!initialChange)
+            if (!startDayChange)
             {
                 gameCameraCentre.SetActive(true);
-                initialCamera.SetActive(false);
-                initialChange = true;
+                startDayCamera.SetActive(false);
+                startDayChange = true;
             }
             InputCheck();
         }

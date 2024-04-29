@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.HighDefinition;
 
 public class GameController : MonoBehaviour
 {
@@ -33,6 +31,8 @@ public class GameController : MonoBehaviour
     [Header("Other")]
 
     public EmailsManager emailsManager;
+    public CameraSwitchCS cameraSwitchCS;
+    public TextMeshProUGUI showDayText;
 
     [Header("Power On")]
 
@@ -69,7 +69,12 @@ public class GameController : MonoBehaviour
     {
         desktopScreen.SetActive(false);
         emailsScreen.SetActive(true);
-        emailsManager.AddEmails();
+    }
+
+    public void CloseEmails()
+    {
+        desktopScreen.SetActive(true);
+        emailsScreen.SetActive(false);
     }
 
     public void RetryDay()
@@ -80,6 +85,7 @@ public class GameController : MonoBehaviour
     public void StartNextDay()
     {
         emailsManager.day++;
+        showDayText.text = "Day " + emailsManager.day;
         StartDay();
     }
 
@@ -118,6 +124,7 @@ public class GameController : MonoBehaviour
         startupScreen.SetActive(true);
         powerButton.material = onMaterial;
         isOn = true;
+        emailsManager.AddEmails();
         StartCoroutine(StartUp());
 
         IEnumerator StartUp()
@@ -134,6 +141,7 @@ public class GameController : MonoBehaviour
     {
         powerButton.material = offMaterial;
         isOn = false;
+        cameraSwitchCS.startDayChange = false;
 
         desktopScreen.SetActive(false);
         loginScreen.SetActive(false);
@@ -146,8 +154,18 @@ public class GameController : MonoBehaviour
         if (emailsManager.correctEmails == emailsManager.emailCount)
         {
             resultText.text = "Day " + emailsManager.day + " Completed!";
-            NextDayButton.SetActive(true);
-            RetryDayButton.SetActive(false);
+
+            // If final day reached
+            if (emailsManager.day == 5)
+            {
+                NextDayButton.SetActive(false);
+                RetryDayButton.SetActive(false);
+            }
+            else
+            {
+                NextDayButton.SetActive(true);
+                RetryDayButton.SetActive(false);
+            }
         }
         // If failed day
         else
@@ -157,14 +175,9 @@ public class GameController : MonoBehaviour
             NextDayButton.SetActive(false);
         }
 
-
+        cameraSwitchCS.gameCameraCentre.SetActive(false);
+        cameraSwitchCS.gameCameraLeft.SetActive(false);
+        cameraSwitchCS.gameCameraRight.SetActive(false);
+        cameraSwitchCS.startDayCamera.SetActive(true);
     }
-
-
-    //cameraSwitchCS.gameCameraCentre.SetActive(false);
-    //cameraSwitchCS.gameCameraLeft.SetActive(false);
-    //cameraSwitchCS.gameCameraRight.SetActive(false);
-    //cameraSwitchCS.initialCamera.SetActive(true);
-
-
 }

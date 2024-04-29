@@ -1,13 +1,10 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UI;
 
 public class EmailsManager : MonoBehaviour
 {
-    // Screens
+    [Header("Screens")]
 
     public GameObject emailScreen;
     public GameObject allEmailsScreen;
@@ -15,9 +12,14 @@ public class EmailsManager : MonoBehaviour
 
     public int day = 1;
 
-    // Emails
+    [Header("Emails")]
 
     public GameObject[] Day1Emails;
+    public GameObject[] Day2Emails;
+    public GameObject[] Day3Emails;
+    public GameObject[] Day4Emails;
+    public GameObject[] Day5Emails;
+    public GameObject[] currentDayEmails;
 
     private float change = 60f;
     [HideInInspector] public float offset = 60f;
@@ -31,25 +33,38 @@ public class EmailsManager : MonoBehaviour
     [HideInInspector] public int correctEmails = 0;
     [HideInInspector] public List<GameObject> allEmails;
 
-
-
     public void AddEmails()
     {
-
-        // If day 1
-
-        if (day == 1 && emailCount == 0)
+        switch (day)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                int chosen = Random.Range(0, Day1Emails.Length);
-                GameObject newEmail = Instantiate(Day1Emails[chosen], emailScreen.transform);
-                newEmail.GetComponent<RectTransform>().localPosition -= new Vector3(0f, offset, 0f);
+            case 1:
+                currentDayEmails = Day1Emails;
+            break;
+            case 2:
+                currentDayEmails = Day2Emails;
+            break;
+            case 3:
+                currentDayEmails = Day3Emails;
+            break;
+            case 4:
+                currentDayEmails = Day4Emails;
+            break;
+            case 5:
+                currentDayEmails = Day5Emails;
+            break;
+            default:
+            break;
+        }
 
-                offset += change;
-                emailCount++;
-                allEmails.Add(newEmail);
-            }
+        for (int i = 0; i < 5; i++)
+        {
+            int chosen = Random.Range(0, currentDayEmails.Length);
+            GameObject newEmail = Instantiate(currentDayEmails[chosen], emailScreen.transform);
+            newEmail.GetComponent<RectTransform>().localPosition -= new Vector3(0f, offset, 0f);
+
+            offset += change;
+            emailCount++;
+            allEmails.Add(newEmail);
         }
     }
 

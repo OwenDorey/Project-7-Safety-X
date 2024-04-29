@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 5953800678201351517}
   - component: {fileID: 319583673519341826}
   m_Layer: 0
-  m_Name: Good1
+  m_Name: Good3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,9 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243794d909b653849bc2cb24a005c2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subject: 'IMPORTANT: Notice to employees'
-  sender: Vantec
-  email: vantec@vantec-gl.com
+  subject: Your Weekly Newsletter
+  sender: Vantec.N...
+  email: vantec-newsletter@vantec-gl.com
   content: {fileID: 1053058122497299842}
   senderText: {fileID: 6726083895661938756}
   emailContentText: {fileID: 1053058122497299842}
@@ -358,15 +358,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'A notice to all employees.
+  m_text: 'Here''s your weekly newsletter!
 
 
-    We have been made aware of a series of
-    scam emails circulating through our offices. Should you recieve any of these,
-    please report the email to out cybersecurity team.
+    ...
+
+    ...
+
+    ...
 
 
-    Vantec.'
+    (There
+    doesn''t seem to be much of interest...)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 275d75147ba690e40bf5e788b38e96b1, type: 2}
   m_sharedMaterial: {fileID: 864775698035860100, guid: 275d75147ba690e40bf5e788b38e96b1,

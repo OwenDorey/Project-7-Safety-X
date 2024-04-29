@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,9 +6,10 @@ public class Email : MonoBehaviour
     public string subject;
     public string sender;
     public string email;
-    public string content;
+    //public string content;
     private string time;
 
+    public TMP_Text content;
     public TMP_Text senderText;
     public TMP_Text emailContentText;
     public TMP_Text timeText;
@@ -19,7 +18,6 @@ public class Email : MonoBehaviour
 
     private void Start()
     {
-
         // Sets Time
 
         int num1 = Random.Range(6, 23);
@@ -29,7 +27,7 @@ public class Email : MonoBehaviour
         // Sets Other Info
 
         senderText.text = sender;
-        emailContentText.text = content;
+        emailContentText.text = content.text;
         timeText.text = time;
     }
 
@@ -43,7 +41,7 @@ public class Email : MonoBehaviour
         openedEmailScreen.subject.text = subject;
         openedEmailScreen.sender.text = sender;
         openedEmailScreen.email.text = email;
-        openedEmailScreen.content.text = content;
+        openedEmailScreen.content.text = content.text;
         openedEmailScreen.time.text = time;
 
         emailsManager.isCurrentEmailGood = isGood;
